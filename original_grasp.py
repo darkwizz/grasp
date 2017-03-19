@@ -229,7 +229,7 @@ def atomic(f):
 # def hit(k):
 #     hits[k] += 1
 
-MINUTE, HOUR, DAY = 60, 60*60, 60*60*24
+MINUTE, HOUR, DAY = 60, 60 * 60, 60 * 60 * 24
 
 def scheduled(interval=MINUTE):
     """ The @scheduled decorator executes a function periodically (async).
@@ -277,7 +277,7 @@ def retry(exception, tries, f, *args, **kwargs):
 # Functions that access the internet must report the visited URL using the standard logging module.
 # See also: https://docs.python.org/2/library/logging.html#logging.Formatter
 
-SIGNED = '%(asctime)s %(filename)s:%(lineno)s %(funcName)s: %(message)s' # 12:59:59 grasp.py#1000
+SIGNED = '%(asctime)s %(filename)s:%(lineno)s %(funcName)s: %(message)s' # 12:59:59 original_grasp.py#1000
 
 log = logging.getLogger(__name__)
 log.level = logging.DEBUG
