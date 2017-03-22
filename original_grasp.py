@@ -594,7 +594,7 @@ class Database(object):
         return self(*UPDATE(table, id, **fields), 
                         commit=fields.pop('commit', True))
 
-    def remove(self, table, id):
+    def remove(self, table, id, **fields):
         return self(*DELETE(table, id), 
                         commit=fields.pop('commit', True))
 
