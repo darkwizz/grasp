@@ -53,11 +53,13 @@ def tokenize(input_text):
         part = parts[i]
         if part in groups:  # this part never won't be when i = 0 nor i = -1, because split always
                             # divides text into at least two parts
-            sentences[-1] = re.sub(spacing_reg, spacing_replacement, (parts[i - 1] + part[:-1]).strip()).strip()
+            sentences[-1] = re.sub(u' +', u' ', re.sub(spacing_reg, spacing_replacement,
+                                   (parts[i - 1] + part[:-1]).strip()).strip())
             parts[i + 1] = part[-1] + parts[i + 1]
         elif part != u'':
             # part re.sub where all punctuation marks will be separated with space from words
-            subbed = re.sub(spacing_reg, spacing_replacement, part.strip()).strip()
+            subbed = re.sub(u' +', u' ', re.sub(spacing_reg,
+                                                spacing_replacement, part.strip()).strip())
             sentences.append(subbed)
     return sentences
 
